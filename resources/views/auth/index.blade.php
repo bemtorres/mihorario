@@ -1,3 +1,9 @@
+@php
+
+    $usuario = "benja.mora.torres@gmail.com";
+    $pass = 123456;
+
+@endphp
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -59,14 +65,14 @@
             @csrf
             <div class="form-group">
               <label for="user">Usuario</label>
-              <input type="text" class="form-control" id="user" name="user" placeholder="" required>
+              <input type="text" class="form-control" id="user" name="user" value="{{ $usuario }}" placeholder="" required>
             </div>
             <div class="form-group">
               <div class="d-flex justify-content-between">
                 <label for="pass">Contraseña</label>
                 {{-- <a href="">¿He olvidado mi contraseña?</a> --}}
               </div>
-              <input type="password" class="form-control" id="pass" name="pass" placeholder="" required>
+              <input type="password" class="form-control" id="pass" name="pass" value="{{ $pass }}" placeholder="" required>
             </div>
 
             {{-- <div class="form-group">
