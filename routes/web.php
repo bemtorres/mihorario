@@ -2,26 +2,27 @@
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\ConfigController;
+use App\Http\Controllers\EscenarioController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\PerfilController;
-use App\Http\Controllers\ProductoController;
-use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SistemaController;
-use App\Http\Controllers\SolicitudController;
 use App\Http\Controllers\TeamController;
 
 Route::get('/', [AuthController::class,'index'])->name('root');
 
 Route::get('/acceso', [AuthController::class,'acceso'])->name('login');
 Route::post('/acceso', [AuthController::class,'login'])->name('login');
+Route::get('/acceso/registro', [AuthController::class,'registro'])->name('login.registro');
 
 Route::middleware('auth.user')->group( function () {
   Route::any('logout', [AuthController::class,'logout'])->name('logout');
 
-  Route::get('admin/home', [HomeController::class,'index'])->name('home.index');
+  Route::get('home', [HomeController::class,'index'])->name('home.index');
+  Route::get('escenarios', [EscenarioController::class,'index'])->name('escenario.index');
+  Route::post('escenarios', [EscenarioController::class,'store'])->name('escenario.store');
 
   Route::get('admin/perfil', [PerfilController::class,'index'])->name('admin.perfil.index');
 
@@ -43,34 +44,10 @@ Route::middleware('auth.user')->group( function () {
   Route::put('admin/usuario/{id}', [UsuarioController::class,'update'])->name('admin.usuario.update');
   // Route::delete('admin/usuario/{id}', [UsuarioController::class,'destroy'])->name('admin.usuario.delete');
 
-  Route::get('admin/usuario/{id}/historial', [UsuarioController::class,'historial'])->name('admin.usuario.historial');
-
-  Route::get('admin/solicitudes', [SolicitudController::class,'index'])->name('admin.solicitud.index');
-  Route::get('admin/solicitudes/aceptados', [SolicitudController::class,'aceptados'])->name('admin.solicitud.aceptados');
-  Route::get('admin/solicitudes/rechazados', [SolicitudController::class,'rechazados'])->name('admin.solicitud.rechazados');
-  Route::get('admin/solicitudes/{id}', [SolicitudController::class,'show'])->name('admin.solicitud.show');
-  Route::put('admin/solicitudes/{id}', [SolicitudController::class,'finished'])->name('admin.solicitud.finished');
-
-  // Productos
-  Route::get('admin/producto', [ProductoController::class,'index'])->name('admin.producto.index');
-  Route::get('admin/producto/create', [ProductoController::class,'create'])->name('admin.producto.create');
-  Route::post('admin/producto', [ProductoController::class,'store'])->name('admin.producto.store');
-  Route::get('admin/producto/{id}', [ProductoController::class,'show'])->name('admin.producto.show');
-  Route::get('admin/producto/{id}/edit', [ProductoController::class,'edit'])->name('admin.producto.edit');
-  Route::put('admin/producto/{id}', [ProductoController::class,'update'])->name('admin.producto.update');
-  // Route::delete('admin/producto/{id}', [AccionController::class,'destroy'])->name('admin.producto.delete');
-
   Route::get('admin/team', [TeamController::class,'index'])->name('admin.team.index');
   Route::get('admin/team/create', [TeamController::class,'create'])->name('admin.team.create');
   Route::post('admin/team', [TeamController::class,'store'])->name('admin.team.store');
-  // Route::get('admin/team/{id}', [TeamController::class,'show'])->name('admin.team.show');
-  // Route::get('admin/team/{id}/edit', [TeamController::class,'edit'])->name('admin.team.edit');
-  // Route::put('admin/team/{id}', [TeamController::class,'update'])->name('admin.team.update');
-  // Route::delete('admin/team/{id}', [TeamController::class,'destroy'])->name('admin.team.delete');
 
-  Route::get('admin/report', [ReportController::class,'index'])->name('admin.report.index');
-
-  // Route::get('admin/reset', [HomeController::class,'reset'])->name('admin.reset');
-
+  // Route::get('admin/report', [ReportController::class,'index'])->name('admin.report.index');
 
 });

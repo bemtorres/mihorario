@@ -2,7 +2,7 @@
 
 namespace App\Services\Jwt;
 
-use App\Models\Inf\Usuario;
+use App\Models\Usuario;
 use Firebase\JWT\JWT;
 
 class JwtQrEncode extends JwtQR

@@ -98,3 +98,76 @@ footer {
 .handle {
   cursor: pointer;
 }
+
+
+.btn-cp-primary {
+  color: #fff;
+  background-color: #38B6FF;
+  border-color: #38B6FF;
+}
+
+.btn-cp-secondary {
+  color: #fff;
+  background-color: #6C757D;
+  border-color: #6C757D;
+}
+
+.btn-cp-success {
+  color: #fff;
+  background-color: #198754;
+  border-color: #198754;
+}
+
+.btn-cp-danger {
+  color: #fff;
+  background-color: #DC3545;
+  border-color: #DC3545;
+}
+
+.btn-cp-warning {
+  color: #212529;
+  background-color: #FFC107;
+  border-color: #FFC107;
+}
+
+.btn-cp-info {
+  color: #fff;
+  background-color: #0DCAF0;
+  border-color: #0DCAF0;
+}
+
+.btn-cp-dark-primary {
+  color: #fff;
+  background-color: #00509D;
+  border-color: #00509D;
+}
+
+.btn-cp-dark-secondary {
+  color: #fff;
+  background-color: #343A40;
+  border-color: #343A40;
+}
+
+.btn-cp-dark-success {
+  color: #fff;
+  background-color: #156238;
+  border-color: #156238;
+}
+
+.btn-cp-dark-danger {
+  color: #fff;
+  background-color: #6C1F1F;
+  border-color: #6C1F1F;
+}
+
+.btn-cp-dark-warning {
+  color: #212529;
+  background-color: #E0A800;
+  border-color: #E0A800;
+}
+
+.btn-cp-dark-info {
+  color: #fff;
+  background-color: #0A95BD;
+  border-color: #0A95BD;
+}

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\Inf\Config;
-use App\Models\Inf\Sistema;
-use App\Models\Inf\Usuario;
+use App\Models\Config;
+use App\Models\Sistema;
+use App\Models\Usuario;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -35,11 +35,27 @@ class AuthController extends Controller
     return view('auth.index', compact('s'));
   }
 
+  public function registro() {
+    $s = Sistema::first();
+
+    // if ($s->getInfoDemo()) {
+    //   // if ($s->getInfoRedirectUrl()) {
+    //   //   // return redirect($s->getInfoRedirectUrl());
+
+    //   //   header('Location: '.$s->getInfoRedirectUrl());
+    //   // }
+
+    //   return view('www.index');
+    // }
+    $s = Sistema::first();
+    return view('auth.registro', compact('s'));
+  }
+
   public function login(Request $request){
     try {
-      $u = Usuario::findByUsername($request->user)->firstOrFail();
+      $u = Usuario::findByUsername($request->mail)->firstOrFail();
 
-      $pass =  hash('sha256', $request->pass);
+      $pass =  hash('sha256', $request->passw);
       if($u->password==$pass){
 
         Auth::guard('usuario')->loginUsingId($u->id);

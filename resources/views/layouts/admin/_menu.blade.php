@@ -12,12 +12,7 @@
       <span>Inicio</span>
     </a>
   </li>
-  <li class="nav-item {{ activeTab(['admin/solicitudes*']) }}">
-    <a class="nav-link" href="{{ route('admin.solicitud.index') }}">
-      <i class="fas fa-fw fa-bell"></i>
-      <span>Solicitudes</span>
-    </a>
-  </li>
+
   <hr class="sidebar-divider">
   {{-- <div class="sidebar-heading">
     Administrador
@@ -28,13 +23,6 @@
       <span>Recompensas</span>
     </a>
   </li> --}}
-
-  <li class="nav-item {{ activeTab(['admin/producto*']) }}">
-    <a class="nav-link" href="{{ route('admin.producto.index') }}">
-      <i class="fas fa-fw fa-heart"></i>
-      <span>Productos</span>
-    </a>
-  </li>
 {{--
   <li class="nav-item {{ activeTab(['admin/reports*']) }}">
     <a class="nav-link" href="{{ route('admin.report.index') }}">

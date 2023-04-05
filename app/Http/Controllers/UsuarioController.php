@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUsuarioRequest;
-use App\Models\Inf\Team;
-use App\Models\Inf\Usuario;
+use App\Models\Team;
+use App\Models\Usuario;
 use App\Services\Policies\UsuarioPolicy;
 use Illuminate\Http\Client\Request as ClientRequest;
 use Illuminate\Http\Request;

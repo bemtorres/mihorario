@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Inf\Team;
-use App\Models\Inf\Usuario;
+use App\Models\Team;
+use App\Models\Usuario;
 use App\Services\Policies\UsuarioPolicy;
 use Illuminate\Http\Request;
 

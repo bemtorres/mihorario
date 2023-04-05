@@ -74,7 +74,7 @@ return [
         // ],
         'usuario' => [
           'driver' => 'eloquent',
-          'model' => App\Models\Inf\Usuario::class,
+          'model' => App\Models\Usuario::class,
       ],
 
     ],

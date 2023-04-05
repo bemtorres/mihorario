@@ -1,7 +1,7 @@
 
 <?php
 
-use App\Models\Inf\Usuario;
+use App\Models\Usuario;
 
 /**
  * session user

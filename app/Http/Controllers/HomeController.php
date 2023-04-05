@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Alumno;
 use App\Models\De\Producto;
 use App\Models\De\Solicitud;
-use App\Models\Inf\Usuario;
+use App\Models\Usuario;
 use App\Models\Rec\Accion;
 use App\Models\Rec\Transaccion;
 use App\Services\FormularioSocioeconomico;
 use App\Services\Jwt\JwtFirmaDecode;
 use App\Services\Jwt\JwtFirmaEncode;
+use App\Services\Modulo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -18,28 +19,12 @@ class HomeController extends Controller
 {
 
   public function index() {
-    $reports = [
-      'count_solicitudes' => 0
-    ];
 
-    $reports['count_solicitudes'] = Solicitud::where('estado',1)->where('activo', true)->get()->count();
+    $calendars = (new Modulo())->call();
 
-    return view('home.index', compact('reports'));
-  }
+    // return $calendars;
 
-  public function home() {
-    $formulario = (new FormularioSocioeconomico())->call();
-
-    // return $formulario['GENERAL']['values'][10][0];
-
-    return view('home.home', compact(['formulario']));
-  }
-
-
-  public function form() {
-    $formulario = (new FormularioSocioeconomico())->call();
-
-    return view('home.form', compact(['formulario']));
+    return view('home.index', compact('calendars'));
   }
 
   public function auth() {
@@ -74,33 +59,4 @@ class HomeController extends Controller
   //     return view('home.verificar')->with('success','Hemos recibido su firma');
   //   }
   // }
-
-  public function reset() {
-    $usuarios = Usuario::get();
-    $acciones = Accion::get();
-    $productos = Producto::get();
-
-    foreach ($usuarios as $u) {
-      $u->credito = 0;
-      $u->update();
-    }
-
-    foreach ($acciones as $a) {
-      $a->stock += $a->cant_entregada ?? 0;
-      $a->cant_entregada = 0;
-      $a->update();
-    }
-
-    foreach ($productos as $p) {
-      $p->stock += $p->cant_entregada ?? 0;
-      $p->cant_entregada = 0;
-      $p->update();
-    }
-
-    DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-    Solicitud::truncate();
-    Transaccion::truncate();
-    DB::statement('SET FOREIGN_KEY_CHECKS=1;');
-
-  }
 }

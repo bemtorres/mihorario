@@ -2,8 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\Models\Inf\Team;
-use App\Models\Inf\Usuario;
+use App\Models\Team;
+use App\Models\Usuario;
 use Faker\Factory;
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Inf\Config;
-use App\Models\Inf\Sistema;
+use App\Models\Config;
+use App\Models\Sistema;
 use App\Services\ImportImage;
 use Illuminate\Http\Request;
 

@@ -4,7 +4,7 @@ namespace App\Services;
 
 use App\Models\De\Producto;
 use App\Models\De\Solicitud;
-use App\Models\Inf\Usuario;
+use App\Models\Usuario;
 use App\Models\Rec\Transaccion;
 
 class FinishedSolicitud
