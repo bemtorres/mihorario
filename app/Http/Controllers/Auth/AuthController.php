@@ -35,6 +35,12 @@ class AuthController extends Controller
     return view('auth.index', compact('s'));
   }
 
+  public function terminos() {
+    $s = Sistema::first();
+    return view('auth.terminos', compact('s'));
+  }
+
+
   public function registro() {
     $s = Sistema::first();
 

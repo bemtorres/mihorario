@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cp_detalle_asignatura', function (Blueprint $table) {
+        Schema::create('cp_detalle_actividad', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_asignatura');
-            $table->foreign('id_asignatura')->references('id')->on('cp_asignatura');
-            $table->date('fecha');
+            $table->unsignedBigInteger('id_actividad');
+            $table->foreign('id_actividad')->references('id')->on('cp_actividad');
+            $table->date('fecha')->nullable();
             $table->integer('semana');
             $table->integer('dia');
             $table->integer('modulo');

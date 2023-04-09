@@ -2,6 +2,7 @@
 
 namespace App\Presenters\Sistema;
 use App\Presenters\Presenter;
+use App\Services\Currency;
 use App\Services\Imagen;
 
 class EscenarioPresenter extends Presenter
@@ -34,8 +35,15 @@ class EscenarioPresenter extends Presenter
     return (new Imagen($this->model->assets['logo'] ?? null, $this->folderImg, 'images/escenarios/'. self::IMG_RANDOM[rand(0,11)]))->call();
   }
 
+  public function getPrincig() {
+    $price = $this->model->info['normal_price'] ?? 0;
+    return [$price,  Currency::getConvert($price)];
+  }
 
-
+  public function getPrincigBono() {
+    $price = $this->model->info['bono_price'] ?? 0;
+    return [$price,  Currency::getConvert($price)];
+  }
 
   // public function getBackgroundLogin() {
   //   return (new Imagen($this->model->assets['background'] ?? null, $this->folderImg, $this->imgLogin))->call();

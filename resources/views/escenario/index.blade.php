@@ -20,14 +20,9 @@
 
 @endpush
 @section('content')
-
 <div class="container">
   <div class="row mt-3">
-
-
     <div class="col-md-12">
-
-
       <div class="card">
         {{-- <img class="card-img-top" src="holder.js/100px180/" alt="Title"> --}}
         <div class="card-body">
@@ -40,11 +35,11 @@
             <div class="row">
               @forelse ($escenarios as $es)
                 <div class="col-md-3">
-                  <div class="card text-start handle mb-3 shadow-sm">
+                  <div class="card text-start handle mb-3 shadow-sm" onclick="window.location.href='{{ route('escenario.show', $es->id) }}'">
                     <img class="card-img-top" src="{{ asset($es->present()->getLogoRandom()) }}" alt="{{ $es->nombre }}">
                     <div class="card-body">
-                      <h4 class="card-title">{{ $es->nombre }}</h4>
-                      {{-- <p class="card-text">Body</p> --}}
+                      {{-- <h4 class="card-title">{{ $es->nombre }}</h4> --}}
+                      <p class="card-text">{{ $es->nombre }}</p>
                     </div>
                   </div>
                 </div>

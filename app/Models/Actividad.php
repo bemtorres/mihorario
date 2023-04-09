@@ -2,18 +2,18 @@
 
 namespace App\Models;
 
-use App\Presenters\Sistema\EscenarioPresenter;
+use App\Presenters\Sistema\ActividadPresenter;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Database\Eloquent\Casts\Attribute;
 
 
-class Escenario extends Model
+class Actividad extends Model
 {
   use HasFactory;
 
-  protected $table = 'cp_escenario';
+  protected $table = 'cp_actividad';
 
   // CONST STATUS = [
   //   1 => 'SIN SOLICITUD',
@@ -21,31 +21,19 @@ class Escenario extends Model
   //   3 => 'FINALIZADOS'
   // ];
 
-  protected function assets(): Attribute {
+  protected function config(): Attribute {
     return Attribute::make(
         get: fn ($value) => json_decode($value, true),
         set: fn ($value) => json_encode($value),
     );
   }
 
-  protected function info(): Attribute {
-    return Attribute::make(
-        get: fn ($value) => json_decode($value, true),
-        set: fn ($value) => json_encode($value),
-    );
+  public function detalles(){
+    return $this->hasMany(DetalleActividad::class,'id_actividad');
   }
-
-  // public function lider(){
-  //   return $this->belongsTo(Usuario::class,'id_lider');
-  // }
-
-  public function actividades(){
-    return $this->hasMany(Actividad::class,'id_escenario')->with(['detalles']);
-  }
-
 
   public function present(){
-    return new EscenarioPresenter($this);
+    return new ActividadPresenter($this);
   }
 
   public function scopeFindUser($query, $id) {

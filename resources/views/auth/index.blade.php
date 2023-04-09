@@ -115,7 +115,14 @@
               </div>
             </div>
             <div class="row">
-              <small><em>Nuestra plataforma requiere que los usuarios sean invitados por otros usuarios para poder registrarse, y esto se debe a varias razones importantes. En primer lugar, al controlar el acceso solo a través de invitaciones, podemos garantizar que solo las personas que han sido previamente invitadas y verificadas puedan registrarse, lo que ayuda a prevenir el spam y otras actividades maliciosas. Además, esta medida fomenta la creación de una comunidad más estrecha y comprometida. También ayuda a controlar el crecimiento de la plataforma y a aumentar los niveles de seguridad mediante la verificación de identidad del usuario que envía la invitación. En resumen, el requisito de invitación para la creación de cuentas en nuestra plataforma se justifica por motivos de seguridad, compromiso de la comunidad, control de crecimiento y verificación de identidad.</em></small>
+              <small class="mb-3">
+                <strong>CronoProf community</strong>
+                requiere que los usuarios sean invitados por otros usuarios para poder registrarse, y esto se debe a varias razones importantes.
+                <br><br>En primer lugar, al controlar el acceso solo a través de invitaciones, podemos garantizar que solo las personas que han sido previamente invitadas y verificadas puedan registrarse, lo que ayuda a prevenir el spam y otras actividades maliciosas.
+                <br><br>Además, esta medida fomenta la creación de una comunidad más estrecha y comprometida. También ayuda a controlar el crecimiento de la plataforma y a aumentar los niveles de seguridad mediante la verificación de identidad del usuario que envía la invitación.
+                <br><br> En resumen, el requisito de invitación para la creación de cuentas en nuestra plataforma se justifica por motivos de seguridad, compromiso de la comunidad, control de crecimiento y verificación de identidad.</small>
+                <hr>
+                <small>Tambien puede leer los terminos y condiciones en el siguiente <a href="{{ route('login.terminos') }}">enlace</a></small>
             </div>
           </div>
 

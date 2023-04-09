@@ -2,8 +2,6 @@
 <html lang="en" data-bs-theme="auto">
 
 <head>
-    <script src="/docs/5.3/assets/js/color-modes.js"></script>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title', 'CronoProf - Automatización, Eficiencia, Simplicidad y Excelencia')</title>
@@ -24,11 +22,10 @@
           background-color: #F3F6FA !important;
       }
     </style>
-
+    @stack('stylesheet')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-
-<body>
-
+<body class="text-sm">
   {{-- <header class="py-3 mb-4 border-bottom">
       <div class="container d-flex flex-wrap justify-content-center">
           <a href="/"
@@ -43,11 +40,12 @@
           </form>
       </div>
   </header> --}}
-
-  @yield('app')
+  <div id="app">
+    @yield('app')
+  </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="{{ asset('js/custom.js') }}"></script>
-
+  @stack('javascript')
 </body>
 </html>

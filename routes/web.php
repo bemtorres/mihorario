@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActividadController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\EscenarioController;
@@ -16,6 +17,7 @@ Route::get('/', [AuthController::class,'index'])->name('root');
 Route::get('/acceso', [AuthController::class,'acceso'])->name('login');
 Route::post('/acceso', [AuthController::class,'login'])->name('login');
 Route::get('/acceso/registro', [AuthController::class,'registro'])->name('login.registro');
+Route::get('/acceso/terminos', [AuthController::class,'terminos'])->name('login.terminos');
 
 Route::middleware('auth.user')->group( function () {
   Route::any('logout', [AuthController::class,'logout'])->name('logout');
@@ -23,6 +25,11 @@ Route::middleware('auth.user')->group( function () {
   Route::get('home', [HomeController::class,'index'])->name('home.index');
   Route::get('escenarios', [EscenarioController::class,'index'])->name('escenario.index');
   Route::post('escenarios', [EscenarioController::class,'store'])->name('escenario.store');
+  Route::get('escenarios/{id}', [EscenarioController::class,'show'])->name('escenario.show');
+  Route::post('actividad', [ActividadController::class,'store'])->name('actividad.store');
+  Route::put('escenarios/{id}/precio', [EscenarioController::class,'precio'])->name('escenario.update.precio');
+
+
 
   Route::get('admin/perfil', [PerfilController::class,'index'])->name('admin.perfil.index');
 

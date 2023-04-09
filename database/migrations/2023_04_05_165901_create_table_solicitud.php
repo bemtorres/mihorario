@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('solicitud', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_asignatura');
-            $table->foreign('id_asignatura')->references('id')->on('cp_asignatura');
+            $table->unsignedBigInteger('id_actividad');
+            $table->foreign('id_actividad')->references('id')->on('cp_actividad');
             $table->date('fecha');
             $table->integer('semana');
             $table->integer('dia');

@@ -24,6 +24,9 @@ class Modulo
     ['18:11','18:50'],
     ['19:01','19:40'],
     ['19:41','20:20'],
+    ['20:31','21:10'],
+    ['21:11','21:50'],
+    ['21:51','22:30'],
   ];
 
   public function __construct(){
@@ -35,8 +38,8 @@ class Modulo
       $calendar = [];
       $calendar['horario'] = [ 'inicio' => $v[0], 'termino' => $v[1]];
       $calendar['min'] = $this->getMin($v[0],$v[1]);
-      for ($i=0; $i < 7; $i++) {
-        $calendar[] = '';
+      for ($i=0; $i < 6; $i++) {
+        $calendar[] = [];
       }
       array_push($calendars, $calendar);
     }

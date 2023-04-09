@@ -9,11 +9,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 
 
-class Escenario extends Model
+class DetalleActividad extends Model
 {
   use HasFactory;
 
-  protected $table = 'cp_escenario';
+  protected $table = 'cp_detalle_actividad';
 
   // CONST STATUS = [
   //   1 => 'SIN SOLICITUD',
@@ -28,21 +28,9 @@ class Escenario extends Model
     );
   }
 
-  protected function info(): Attribute {
-    return Attribute::make(
-        get: fn ($value) => json_decode($value, true),
-        set: fn ($value) => json_encode($value),
-    );
-  }
-
   // public function lider(){
   //   return $this->belongsTo(Usuario::class,'id_lider');
   // }
-
-  public function actividades(){
-    return $this->hasMany(Actividad::class,'id_escenario')->with(['detalles']);
-  }
-
 
   public function present(){
     return new EscenarioPresenter($this);
