@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Escenario;
 use App\Services\Modulo;
 use App\Services\MyCalendary;
+use App\Services\ReporteGeneral;
 use Illuminate\Http\Request;
 
 class EscenarioController extends Controller
@@ -57,7 +58,15 @@ class EscenarioController extends Controller
 
       $calendario = (new MyCalendary(current_user()->id, $e->id))->call();
 
+
       return view('escenario.show', compact('e','calendars','actividades', 'calendario'));
+    }
+
+    public function reporte($id) {
+      $e = Escenario::with(['actividades'])->findUser(current_user()->id)->findOrFail($id);
+
+      $reportes = (new ReporteGeneral(current_user()->id, $e->id))->call();
+      return view('escenario.reporte', compact('e', 'reportes'));
     }
 
     /**

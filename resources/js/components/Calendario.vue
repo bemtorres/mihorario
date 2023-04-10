@@ -1,13 +1,17 @@
 <template>
   <div>
-    <h4 class="card-title">Calendario - Semana {{ semana  }}</h4>
+    <h4 class="card-title">Calendario - Semana {{ semana  }} </h4>
     <div class="d-flex justify-content-between mb-3">
-      <button type="button" @click="changeShowPrincing()" class="btn btn-secondary btn-sm btn-cp-secondary rounded-pill">
-        Valores: {{ this.showPricing ? 'SI' : 'NO' }}
-      </button>
-      <button type="button" @click="changeShowRoom()" class="btn btn-secondary btn-sm btn-cp-secondary rounded-pill">
-        Sala: {{ this.showRoom ? 'SI' : 'NO' }}
-      </button>
+
+      <div class="">
+
+        <button type="button" @click="changeShowPrincing()" class="btn btn-secondary btn-sm btn-cp-secondary rounded-pill">
+          Valores: {{ this.showPricing ? 'SI' : 'NO' }}
+        </button>
+        <button type="button" @click="changeShowRoom()" class="ms-2 btn btn-secondary btn-sm btn-cp-secondary rounded-pill">
+          Sala: {{ this.showRoom ? 'SI' : 'NO' }}
+        </button>
+      </div>
 
       <div class="btn-group" role="group" aria-label="Basic outlined example">
         <button type="button" class="btn btn-outline-primary" @click="handleWeek(false)">&lt;</button>

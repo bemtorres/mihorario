@@ -2,11 +2,8 @@
 
 namespace App\Services;
 
-use App\Models\Actividad;
 use App\Models\Escenario;
 use App\Models\Usuario;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class MyCalendary
 {

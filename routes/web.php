@@ -28,7 +28,7 @@ Route::middleware('auth.user')->group( function () {
   Route::get('escenarios/{id}', [EscenarioController::class,'show'])->name('escenario.show');
   Route::post('actividad', [ActividadController::class,'store'])->name('actividad.store');
   Route::put('escenarios/{id}/precio', [EscenarioController::class,'precio'])->name('escenario.update.precio');
-
+  Route::get('escenarios/{id}/reporte', [EscenarioController::class,'reporte'])->name('escenario.reporte');
 
 
   Route::get('admin/perfil', [PerfilController::class,'index'])->name('admin.perfil.index');

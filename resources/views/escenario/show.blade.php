@@ -15,6 +15,18 @@
   .a-none:hover {
     text-decoration: none;
   }
+
+  .text-doce {
+    font-size: 12px;
+  }
+
+  .text-once {
+    font-size: 11px;
+  }
+
+  .text-diez {
+    font-size: 10px;
+  }
 </style>
 
 @endpush
@@ -124,13 +136,13 @@
         <h1 class="modal-title fs-5" id="newActividadLabel">Nueva actividad</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div> --}}
-      <form action="{{ route('actividad.store') }}" method="post">
+      <form action="{{ route('actividad.store') }}" method="post" class="form-submit">
         @csrf
         <input type="hidden" name="escenario_id" value="{{ $e->id }}">
 
         <div class="modal-body">
 
-{{--
+      {{--
           <div class="position-relative m-4">
             <div class="progress" role="progressbar" aria-label="Progress" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="height: 1px;">
               <div class="progress-bar" style="width: 50%"></div>

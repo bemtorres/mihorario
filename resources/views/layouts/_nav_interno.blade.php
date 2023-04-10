@@ -16,22 +16,22 @@
             Configuración
           </a>
           <ul class="dropdown-menu">
-            <li><button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#valorActividadModal">Valores</button></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#valorActividadModal">Valores</button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#calendarioModal">Fechas</button>
+            </li>
+            {{-- <li><a class="dropdown-item" href="{{ route('escenario.reporte', $e->id) }}">Pagos semanal</a></li> --}}
           </ul>
         </li>
-
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Reportes
+            Paneles
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="{{ route('escenario.show', $e->id) }}">Principal</a></li>
+            <li><a class="dropdown-item" href="{{ route('escenario.reporte', $e->id) }}">Pagos semanal</a></li>
           </ul>
         </li>
       </ul>
@@ -60,9 +60,9 @@
 
 
 <div class="modal fade" id="valorActividadModal" tabindex="-1" aria-labelledby="valorActividadModalLabel" aria-hidden="true">
-  <div class="modal-dialog  modal-lg modal-dialog-centered">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-        <form action="{{ route('escenario.update.precio', $e->id) }}" method="post">
+        <form action="{{ route('escenario.update.precio', $e->id) }}" method="post" class="form-submit">
           @csrf
           @method('PUT')
         {{-- <div class="modal-header">
@@ -81,6 +81,42 @@
               <label for="inputNombre" class="col-sm-2 col-form-label">Bono<small class="text-danger">*</small></label>
               <div class="col-sm-10">
                 <input type="number" min="0" class="form-control" id="inputBono" name="bono" value="{{ $e->present()->getPrincigBono()[0] }}" required>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+      </form>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="calendarioModal" tabindex="-1" aria-labelledby="calendarioModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <form action="{{ route('escenario.update.precio', $e->id) }}" method="post" class="form-submit">
+          @csrf
+          @method('PUT')
+        {{-- <div class="modal-header">
+          <h1 class="modal-title fs-5" id="valorActividadModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div> --}}
+        <div class="modal-body">
+          <p></p>
+          <div class="conatiner">
+            <div class="my-3 row">
+              <label for="inputSemana" class="col-sm-6 col-form-label">Cantidad de semanas</label>
+              <div class="col-sm-6">
+                <input type="number" min="0" class="form-control" id="inputSemana" name="semanas" value="" required>
+              </div>
+            </div>
+            <div class="my-3 row">
+              <label for="inputInicio" class="col-sm-6 col-form-label">Fecha inicio</label>
+              <div class="col-sm-6">
+                <input type="date" class="form-control" id="inputInicio" name="inicio" value=""  required>
               </div>
             </div>
           </div>
